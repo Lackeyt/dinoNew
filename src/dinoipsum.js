@@ -7,7 +7,7 @@ export class Game{
 
   checkGuess(guess){
     if (this.answer.includes(guess)){
-      this.updateHidden(guess)
+      this.updateHidden(guess);
     } else {
       if (this.guessWrong.length > 0 && !this.guessWrong.includes(guess)){
         this.guessWrong.push(guess);
@@ -37,14 +37,16 @@ export class Game{
 
   checkAddSolve(solve){
     if (this.answer === solve){
-      let answerArray = this.answer.split("");
-      let answerHiddenArray = [];
-      for(let i=0; i < answerArray.length; i++){
-        answerHiddenArray.push(answerArray[i]);
-      }
-      this.answerHidden = answerHiddenArray.join(" ");
+      let solveArray = solve.split("");
+      this.answerHidden = solveArray.join(" ");
+      return true;
     } else {
-      this.guessWrong.push(solve);
+      if (this.guessWrong.length > 0 && !this.guessWrong.includes(solve)){
+        this.guessWrong.push(solve);
+      } else if (this.guessWrong.length === 0) {
+        this.guessWrong.push(solve);
+      }
+      return false;
     }
   }
 }

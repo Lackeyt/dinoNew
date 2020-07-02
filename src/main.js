@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import {Game} from './dinoipsum.js';
 
-
 async function dinoWordCall(){
   try{
     let response = await fetch(`http://dinoipsum.herokuapp.com/api/?format=json&paragraphs=1&words=1`); 
@@ -30,7 +29,7 @@ async function getDinoWord() {
 }
 
 function badGuesses(newGame){
-  $("#badGuesses").empty()
+  $("#badGuesses").empty();
   newGame.guessWrong.forEach(element => {
     $("#badGuesses").append(`<li> ${element} </li>`);
   });
@@ -38,8 +37,8 @@ function badGuesses(newGame){
   if (newGame.guessWrong.length >= 6){
     $("body").removeClass();
     $("body").addClass("backgroundLose");
-    $("#gameBoard").hide()
-    $("#gameOver").show()
+    $("#gameBoard").hide();
+    $("#gameOver").show();
     $("#revealedAnswer").html(newGame.answer);
   } else if (newGame.guessWrong.length ===5) {
     $("body").removeClass();
@@ -59,10 +58,8 @@ function badGuesses(newGame){
   }
 }
 
-
 $(document).ready(function () {
   let newGame;
-  //$("body").css("background-image", "url('assets/images/boulderCat1.png')");
   $('#newGame').click(async function() {
     newGame = new Game((await getDinoWord()).toLowerCase());
     $("#intro").hide();
@@ -79,9 +76,21 @@ $(document).ready(function () {
 
   $('#solveForm').sumbit(function(event) {
     event.preventDefault();
+    if (newGame.checkAddSolve($("#solve").val().toLowerCase())){
+      $("#revealedAnswer").html(newGame.answer);
+      $("#winner").show();
+    } else {
+      $("#hiddenAnswer").html(newGame.answerHidden);
+      badGuesses(newGame);
+    }
   });
 
-  
+  $("#startOver1").click(function() {
+    location.reload();
+  });
+  $("#startOver2").click(function() {
+    location.reload();
+  });
 });
 
 //$(document).ready(function(){
