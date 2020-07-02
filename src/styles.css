@@ -1,0 +1,51 @@
+/* Some CSS! */
+
+#gameBoard {
+  display: none;
+}
+
+.background1{
+  background-image: url("assets/images/boulderCat1.png");
+}
+
+.background2{
+  background-image: url("assets/images/boulderCat2.png");
+}
+
+.background3{
+  background-image: url("assets/images/boulderCat3.png");
+}
+
+.background4{
+  background-image: url("assets/images/boulderCat4.png");
+}
+
+.background5{
+  background-image: url("assets/images/boulderCat5.png");
+}
+
+.background6{
+  background-image: url("assets/images/boulderCat6.png");
+}
+
+.backgroundLose{
+  background-image: url("assets/images/boulderCatLose.png");
+}
+
+body {
+  background-image: url("assets/images/boulderCat1.png");
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+.jumbotron {
+  margin-right: 60%;
+  background-color: rgb(100, 255, 255, .1);
+  text-align: center;
+}
+
+#gameOver {
+  display: none;
+}
+
+

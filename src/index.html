@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Boulder Cat</title>
+</head>
+
+<body>
+  <div class="picture">
+  <h1 class="jumbotron">BOULDER CAT</h1>
+  <div id="intro">
+    <div class="container-fluid">
+      <button type="button" id="newGame">New Game</button>
+    </div>
+  </div>
+
+  <div id="gameBoard">
+    <div class="container">
+      <h3 id="hiddenAnswer"></h3>
+      <form id="guessForm">
+        <input id="guess" type="text" maxlength=1>
+        <button type="submit">Guess</button>
+      </form>
+      <form id="solveForm">
+        <input id="solve" type="text">
+        <button type="submit">Solve</button>
+      </form>
+      <ul id="badGuesses"></ul>
+      
+    </div>
+  </div>
+
+  <div id="gameOver">
+    <div class="container">
+      <h2>GAME OVER</h2>
+      <h3 id="revealedAnswer"></h3>
+      <button type="button" id="startOver">startOver</button>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
